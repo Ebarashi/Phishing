@@ -22,13 +22,26 @@ try:
         if data[len(sys.argv) - 1] == "no":
             print("No email from Joseph.\n")
         else:
-            raise TypeError("")
+            raise Exception("")
 
 
 except:
     print("We got an email from Joseph:\n")
     email = data[len(sys.argv) - 1]
-    print(data)
+    print(email)
+
+
+import smtplib, ssl
+
+port = 465  # For SSL
+password = input("Type your password and press enter: ")
+
+# Create a secure SSL context
+context = ssl.create_default_context()
+
+with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+    server.login("my@gmail.com", password)
+    # TODO: Send email here
 
 print(f'username = {data[1]}\nmail_service_name = {data[2]}\ntitle = {data[3]}\njob_title = {data[4]}\n'
       f'personal_status = {data[5]}\nkids = {data[6]}')
