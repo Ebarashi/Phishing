@@ -4,16 +4,17 @@ import validators  # to check if URL is valid
 import pandas as pd
 from pandas import read_html
 import html5lib
+from send_mail import send
 
 data = sys.argv
-username = data[1]
-mail_service_name = data[2]  # like "@yahoo.com" or "@gmail.com" etc.
-title = data[3]
-job_title = data[4]
-personal_status = data[5]
-kids = data[6]
+username = data[1]  # the name of the victom in mail account
+mail_service_name = data[2]  # like "@yahoo.com" or "@google.com" etc.
+title = data[3]  # Ms./Mr.
+job_title = data[4]  # student/emploee/managor
+personal_status = data[5]  # single/married
+kids = data[6]  #yes/no
 
-kid = []
+kid = []  # if to the victom has kids he need to write their ages
 
 try:
     if kids == 'yes':
@@ -39,20 +40,12 @@ except:
             lines = f.readlines()
             [print(line.strip()) for line in lines]
 
-    else:  # (validators.url(email)):  # URL
-        from selenium import webdriver
-        import pandas as pd
-        driver = webdriver.Chrome(chromedriver)
-        driver.implicitly_wait(30)
-
-        driver.get('https://www.wunderground.com/personal-weather-station/dashboard?ID=KMAHADLE7#history/tdata/s20170201/e20170201/mcustom.html')
-        df=pd.read_html(driver.find_element_by_id("history_table").get_attribute('outerHTML'))[0]
-
-
-
-
-
-        # url_data = pd.io.html.read_html(email)
-        # print(url_data)
+    # else:  # (validators.url(email)):  # URL
+    #     url_data = pd.io.html.read_html(email)
+    #     print(url_data)
     
-    #print(email)
+    print("\n The user insert: " + email)
+
+    victom_email = username + mail_service_name
+
+    send(title, username, victom_email)
