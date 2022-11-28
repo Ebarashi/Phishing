@@ -35,17 +35,36 @@ try:
 except:
     print("We got an email from Joseph:\n")
     email = data[len(sys.argv) - 1]
+
     if (email[len(email)-4:len(email)] == '.txt'):  # txt file
-        with open(email) as f:
-            lines = f.readlines()
-            [print(line.strip()) for line in lines]
+        with open(email, 'r') as f:
+            with open('emailFromJoseph.txt', 'w') as mail_from_j:
+                mail_from_j.write(f.read())
+    elif(false):  # url
+        print("")
+
+    else:  #string
+        print("")
+    
+    # Find the opening line of the email
+    # insperation from: https://www.geeksforgeeks.org/python-how-to-search-for-a-string-in-text-files/
+    with open('emailFromJoseph.txt', 'r') as f:
+        # find() method returns -1 if the value is not found,
+        # if found it returns index of the first occurrence of the substring
+        lines = f.readlines()
+        for row in lines:
+            if row.find('Dear') != -1:
+                openingLine = row
+                print(row)
+        
+         
 
     # else:  # (validators.url(email)):  # URL
     #     url_data = pd.io.html.read_html(email)
     #     print(url_data)
     
-    print("\n The user insert: " + email)
+    print("\nThe user insert: " + email)
 
     victom_email = username + mail_service_name
 
-    send(title, username, victom_email)
+    # send(title, username, victom_email)

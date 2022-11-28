@@ -4,20 +4,8 @@ from email.message import EmailMessage
 import ssl  # security
 import smtplib  # to send the mail
 #from email.MIMEImage import MIMEImage
-from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from os.path import basename
-
-
-
-# Imports PIL module
-from PIL import Image
-
-# open method used to open different extension image file
-im = Image.open("warning.jpeg")
-
-# This method will show image in any image viewer
-#im.show()
 
 
 def send(title, username, receiver):
