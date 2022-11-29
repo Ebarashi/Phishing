@@ -5,8 +5,7 @@ import os
 def ip(string: str):
     array = string.split(" ")
     outF = open("script.txt", "a")
-    outF.write(array.pop(0))
-    outF.write(array.pop(1))
+    outF.write(array[0])
     outF.write("\n")
     outF.close()
 
@@ -71,7 +70,7 @@ if __name__ == "__main__":
                 lan(line)
             if c == "lsb_release -a":
                 ops(line)
-            if c == "whoami":
+            if c == "whoami":  # current user
                 outF = open("script.txt", "a")
                 outF.write(line)
                 outF.write("\n")
