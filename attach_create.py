@@ -1,3 +1,4 @@
+# Shani Vahav 208584557 Eilon Barashi 322679713
 # inspire from: https://www.youtube.com/watch?v=g_j6ILT-X0k
 
 from email.message import EmailMessage
