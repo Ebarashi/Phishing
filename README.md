@@ -11,11 +11,11 @@ for example, python3 fake_mail.py shani @gmail.com Ms. student single no email.t
 in this case the email will send to shani@gmail.com  
 
 ## Special modules we used
-fake_mail.py:  
+phishing.py:  
 import validators -> to check the validation of url
 import requests -> to read the url
 
-send_mail.py:  
+attach_create.py:  
 from email.message import EmailMessage -> template that is suitable for email
 import ssl -> to send secure email
 import smtplib  -> to send the mail
