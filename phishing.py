@@ -1,6 +1,6 @@
 import os
 import sys
-from send_mail import send
+from attach_create import send
 import validators  # to check the validation of url
 import requests
 
