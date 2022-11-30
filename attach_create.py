@@ -88,11 +88,11 @@ def send(title, username, receiver, openingLine, closingLine):
     context = ssl.create_default_context()  # for security
 
     # add an attachment
-    file_name = 'Instructions.py'
-    with open(file_name, 'r') as f:
-        attachment = MIMEApplication(f.read(), Name=basename(file_name))
+    file_name = 'attachment'
+    with open(file_name, 'rb') as f:
+        attached = MIMEApplication(f.read(), Name=basename(file_name))
 
-    em.attach(attachment)
+    em.attach(attached)
 
     
  
