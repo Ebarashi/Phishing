@@ -1,13 +1,7 @@
 import os
 import sys
-import validators  # to check if URL is valid
-# for HTML reading:
-import pandas as pd
-from pandas import read_html
-import html5lib
 from send_mail import send
 import validators  # to check the validation of url
-import urllib.request
 import requests
 
 
