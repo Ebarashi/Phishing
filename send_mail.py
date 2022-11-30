@@ -3,14 +3,12 @@
 from email.message import EmailMessage
 import ssl  # security
 import smtplib  # to send the mail
-#from email.MIMEImage import MIMEImage
 from email.mime.application import MIMEApplication
 from os.path import basename
 
 
 def send(title, username, receiver, openingLine, closingLine):
     email_sender = "googlle.controler@gmail.com"
-    email_password = "ggbpadkhcayksuoe"
     email_receiver = receiver
 
     subject = "SECURITY WARNING"
