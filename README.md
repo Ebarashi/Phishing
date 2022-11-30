@@ -20,6 +20,10 @@ from email.message import EmailMessage -> template that is suitable for email
 import ssl -> to send secure email  
 import smtplib  -> to send the mail  
 from email.mime.application import MIMEApplication -> to add a file to the email  
-from os.path import basename -> suffixes of the attached file  
+from os.path import basename -> suffixes of the attached file 
+
 # The attack
-<img src = https://user-images.githubusercontent.com/92265738/204916483-43d8d8b6-081e-482d-bb9c-ac8dbe21ec7b.png width="300" height="500">
+<img src = https://user-images.githubusercontent.com/92265738/204932664-e4af7f73-5b0f-499d-8221-7ec0dd33c977.png width="300" height="500">
+
+## DNS traffic documentation in Wireshark
+<img src = https://user-images.githubusercontent.com/92265738/204931996-71458311-813b-42b4-a43f-5d3c944980c7.png width="700" height="300">
