@@ -16,10 +16,10 @@ import validators -> to check the validation of url
 import requests -> to read the url
 
 attach_create.py:  
-from email.message import EmailMessage -> template that is suitable for email
-import ssl -> to send secure email
-import smtplib  -> to send the mail
-from email.mime.application import MIMEApplication -> to add a file to the email
-from os.path import basename -> suffixes of the attached file
+from email.message import EmailMessage -> template that is suitable for email  
+import ssl -> to send secure email  
+import smtplib  -> to send the mail  
+from email.mime.application import MIMEApplication -> to add a file to the email  
+from os.path import basename -> suffixes of the attached file  
 # The attack
 <img src = https://user-images.githubusercontent.com/92265738/204916483-43d8d8b6-081e-482d-bb9c-ac8dbe21ec7b.png width="300" height="500">
