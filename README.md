@@ -31,7 +31,7 @@ from os.path import basename -> suffixes of the attached file
 
 ## DNS Tunneling
 
-The attack - 
+***The Attack***  
 
 **1 ->** Get the password file, current username, IP, available languages, OS version.
 
@@ -56,21 +56,23 @@ A bidirectional data transfer channel is achieved using a DNS tunneling tool.
 In this task we havn't acquire a domain and a DNS server but we simulate it like we have [{data}.127.0.0.1].
 And as you can see below we succeed to see the DNS traffic with the data in our local net.[The server in our local net 10.0.0.138]
 
-Tools: DNS Tunneling & DNS server
+***Tools: DNS Tunneling & DNS server***
 
-DNScat2
+> DNScat2 
 
 Most of the other DNS Tunneling tools focus on tunneling TCP traffic using DNS, but this tool is different. DNScat2 is designed to create an encrypted command and control channel over the DNS. It borrows some concepts from Metasploit’s handler and is made with ease of use in mind.
 
-Iodine
+> Iodine
 
 Iodine lets you tunnel IPv4 data through a DNS server. It creates a network interface on each of the clients and connects them together as if they shared the same network. This feature is unique to Iodine since other DNS tunneling tools focus on tunneling specific ports, and not the entire IPv4 traffic. This allows computers to ping each other, access all UDP/TCP ports and all other protocols that are encapsulated by an IP header.
 
-Heyoka
+> Heyoka
 
 Heyoka is an exfiltration tool that uses spoofed DNS requests to create a bidirectional tunnel. The tool is not under active development anymore and according to its authors, is up to 60% faster than other tools by using binary encoding and NULL records. Heyoka also focuses on stealth by sending spoofed DNS traffic from other hosts in the network. This makes detection by a firewall and locating the machine that’s tunneling much harder. With that said, it currently works only on Windows.
 
-DNSteal - https://pythonforcybersecurity.com/lessons/lab-1data-exfiltration-using-dnssteal/
+> DNSteal
+  
+https://pythonforcybersecurity.com/lessons/lab-1data-exfiltration-using-dnssteal/
 
 
 
