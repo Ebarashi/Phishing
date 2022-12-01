@@ -1,4 +1,4 @@
-# Phishing by DNS tunneling
+# Phishing by DNS Tunneling
 We send an email to the victim to entice him to download the attachment.  
 Once the victim downloads the file, the file runs on his computer and steals important information such as username, IP, passwords, etc.  
 The information is sent back to us via DNS queries. 
