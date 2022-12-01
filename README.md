@@ -46,15 +46,22 @@ Implementation :
      
  ![1](https://user-images.githubusercontent.com/86716307/205024668-3b3ed7fc-c5b5-4299-b10f-be71f4c923f9.jpg)
  
-The attacker acquires a domain, for example, evilsite.com.
-The attacker configures the domain’s name servers to his own DNS server.
-The attacker delegates a subdomain, such as “tun.evilsite.com” and configures his machine as the subdomain’s authoritative DNS server.
-Any DNS request made by the victim to “{data}.tun.evilsite.com” will end up reaching the attacker’s machine.
-The attacker’s machine encodes a response that will get routed back to the victim’s machine.
-A bidirectional data transfer channel is achieved using a DNS tunneling tool.
+>**1**> The attacker acquires a domain, for example, evilsite.com.
+
+>**2**> The attacker configures the domain’s name servers to his own DNS server.
+
+>**3**> The attacker delegates a subdomain,such as “tun.evilsite.com” and configures his machine as the subdomain’s authoritative DNS server.
+
+>**4**> Any DNS request made by the victim to “{data}.tun.evilsite.com” will end up reaching the attacker’s machine.
+
+>**5**> The attacker’s machine encodes a response that will get routed back to the victim’s machine.
+
+>**6**> A bidirectional data transfer channel is achieved using a DNS tunneling tool.
 
 In this task we havn't acquire a domain and a DNS server but we simulate it like we have [{data}.127.0.0.1].
-And as you can see below we succeed to see the DNS traffic with the data in our local net.[The server in our local net 10.0.0.138]
+
+And as you can see below we succeed to see the DNS traffic with the data in our local net [The server in our local net 10.0.0.138]
+
 
 ***Tools: DNS Tunneling & DNS server***
 
