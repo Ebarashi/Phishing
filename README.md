@@ -25,5 +25,29 @@ from os.path import basename -> suffixes of the attached file
 # The attack
 <img src = https://user-images.githubusercontent.com/92265738/204932664-e4af7f73-5b0f-499d-8221-7ec0dd33c977.png width="300" height="500">
 
-## DNS traffic documentation in Wireshark
+
+
+
+
+## DNS Tunneling
+
+The attack - 
+
+**1 ->** Get the password file, current username, IP, available languages, OS version.
+
+**2 ->** Send data through DNS queries to a local server.
+
+Implementation :
+
+**1 ->** write the data to a txt file we We extracted the information from the shadaw file and the rest of the information using the cmd commands.
+
+**2 ->** we use nslookup to generate DNS queries and send to the DNS server. 
+     Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. It is a network administration tool for querying the        Domain Name System (DNS) to obtain domain name or IP address mapping or any other specific DNS record.
+     
+    
+
+![image](https://user-images.githubusercontent.com/86716307/205019126-3c62f71a-d851-4926-88e9-4aa7bea519b1.png)
+
+***traffic documentation in Wireshark***
+
 <img src = https://user-images.githubusercontent.com/92265738/204931996-71458311-813b-42b4-a43f-5d3c944980c7.png width="700" height="300">
